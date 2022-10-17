@@ -1,0 +1,30 @@
+﻿@model ComputerStore.Models.Product
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Видалення продукту</h2>
+<dl>
+    <dt>Назва продукту</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Name)
+    </dd>
+
+    <dt>Опис</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Description)
+    </dd>
+
+    <dt>Категорія</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Category.Name)
+    </dd>
+
+    <dt>Ціна</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Price)
+    </dd>
+</dl>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Видалити">
+}

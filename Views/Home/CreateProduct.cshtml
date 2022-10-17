@@ -1,0 +1,32 @@
+﻿@model ComputerStore.Models.Product
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новий продукт</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(m => m.Name,"Назва продукту")
+    <br>
+    @Html.EditorFor(m => m.Name)
+    <br>
+    <br>
+    @Html.LabelFor(m => m.Description,"Опис")
+    <br>
+    @Html.EditorFor(m => m.Description)
+    <br>
+    <br>
+    @Html.LabelFor(m => m.Category,"Категорія")
+    <br>
+    @Html.DropDownListFor(m => m.CategoryId, ViewBag.Categories as SelectList)
+    <br>
+    <br>
+    @Html.LabelFor(m => m.Price,"Ціна")
+    <br>
+    @Html.EditorFor(m => m.Price)
+    <br>
+    <br>
+    <input type="submit" value="Добавити">
+}

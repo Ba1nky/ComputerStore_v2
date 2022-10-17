@@ -1,0 +1,35 @@
+﻿@model ComputerStore.Models.Product
+@{
+    ViewBag.Title = "Редагувати продукт";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Продукт №@Model.ProductId</h2>
+@using (Html.BeginForm("EditProduct","Home",FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.ProductId)
+        <p>
+            @Html.LabelFor(m => m.Name,"Назва продукту")
+            <br>
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Description,"Опис")
+            <br>
+            @Html.EditorFor(m => m.Description)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Category,"Категорія")
+            <br>
+            @Html.DropDownListFor(m => m.CategoryId, ViewBag.Categories as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Price,"Ціна")
+            <br>
+            @Html.EditorFor(m => m.Price)
+        </p>
+        <p>
+            <input type="submit" value="Редагувати">
+        </p>
+    </fieldset>
+}

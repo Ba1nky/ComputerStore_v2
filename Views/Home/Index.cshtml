@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ComputerStore.Models.Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>Магазин комп'ютерної техніки</h3>
+    <table>
+        <tr class="header">
+            <td><p>Назва товару</p></td>
+            <td><p>Опис</p></td>
+            <td><p>Категорія</p></td>
+            <td><p>Ціна</p></td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach(ComputerStore.Models.Product p in Model)
+        {
+            <tr>
+                <td><p>@p.Name</p></td>
+                <td><p>@p.Description</p></td>
+                <td><p>@p.Category.Name</p></td>
+                <td><p>@p.Price</p></td>
+                <td><p><a href="/Home/Buy/@p.ProductId">Купити</a></p></td>
+                <td><p>|</p></td>
+                <td><p><a href="/Home/EditProduct/@p.ProductId">Редагувати</a></p></td>
+                <td><p>|</p></td>
+                <td><p><a href="/Home/DeleteProduct/@p.ProductId">Видалити</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
